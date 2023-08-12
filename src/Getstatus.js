@@ -1,5 +1,4 @@
-
-import puppeteer from "puppeteer";
+import { executablePath, puppeteer  } from "puppeteer";
 const url = 'https://www.linkcorreios.com.br/?id=';
 
 
@@ -9,7 +8,8 @@ export default async function Getstatus({id}){
       
             const browser = await puppeteer.launch({
             headless: true,
-            ignoreDefaultArgs: ['--disable-extensions'], // this made it work for now
+            ignoreDefaultArgs: ['--disable-extensions'], 
+            executablePath: executablePath(),      
             });
             const page = await browser.newPage();
             await page.goto(`${url}${id}`);
