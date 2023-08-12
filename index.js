@@ -17,4 +17,4 @@ app.get('/', async (req, res) => {
          res.json({result});
 })
 // Starting server
-app.listen('4242')
+app.listen('443')
