@@ -2,6 +2,7 @@
 import express  from 'express'
 import morgan from 'morgan'
 import Getstatus from './src/Getstatus.js'
+const PORT = process.env.PORT || 1337;
 
 // App
 const app = express()
@@ -17,4 +18,6 @@ app.get('/', async (req, res) => {
          res.json({result});
 })
 // Starting server
-app.listen('443')
+app.listen(PORT, () => {
+  console.log(`server started on port ${PORT}`);
+});
