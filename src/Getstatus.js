@@ -7,7 +7,10 @@ export default async function Getstatus({id}){
 
 
       
-            const browser = await puppeteer.launch();
+            const browser = await puppeteer.launch({
+            headless: true,
+            ignoreDefaultArgs: ['--disable-extensions'], // this made it work for now
+            });
             const page = await browser.newPage();
             await page.goto(`${url}${id}`);
             const els = await page.$$('div.singlepost');
