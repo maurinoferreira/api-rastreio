@@ -1,4 +1,4 @@
-import puppeteer, { executablePath } from "puppeteer-core";
+import puppeteer, { executablePath } from "puppeteer";
 const url = 'https://www.linkcorreios.com.br/?id=';
 
 
