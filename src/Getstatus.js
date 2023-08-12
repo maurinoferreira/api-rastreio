@@ -8,7 +8,6 @@ export default async function Getstatus({id}){
       
             const browser = await puppeteer.launch({
             headless: true,
-            ignoreDefaultArgs: ['--disable-extensions'], 
             executablePath: executablePath(),      
             });
             const page = await browser.newPage();
