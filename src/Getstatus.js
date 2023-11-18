@@ -1,5 +1,4 @@
 import puppeteer from "puppeteer";
-import chromium from "chrome-aws-lambda";
 const url = 'https://www.linkcorreios.com.br/?id=';
 
 
@@ -8,8 +7,7 @@ export default async function Getstatus({id}){
 
       
             const browser = await puppeteer.launch({
-            headless: true,
-            executablePath: await chromium.executablePath,      
+            headless: true, 
             });
             const page = await browser.newPage();
             await page.goto(`${url}${id}`);
@@ -30,11 +28,14 @@ export default async function Getstatus({id}){
             var status = await page.$$eval('ul.linha_status > li', elements=> elements.map(item=>item.textContent));
 
               const chunks = 3;
+
+             
              
               while(status.length > 0)
                 {
                      const chunk = status.splice(0, chunks);
                      arr2.push(chunk);
+
                 }
 
 
